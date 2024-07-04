@@ -1,0 +1,29 @@
+@mixin transition($property: all, $duration: 0.6s, $animation: $transition-anim, $delay: 0s) {
+  transition: $property $duration $animation $delay;
+}
+
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media (max-width: 768px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$screen-min-width}) / #{$screen-max-width}));
+  }
+
+  @media (min-width: 768px) {
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$screen-max-width}));
+  }
+
+  @media (min-width: #{$screen-max-width + px}) {
+    font-size: $pcSize + px;
+  }
+}
+
+@mixin adaptiv-value($property, $startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+  #{$property}: $startSize + px;
+
+  @media (max-width: #{$screen-max-width + px}) {
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$screen-min-width}) / #{$screen-max-width - 320}))
+  }
+}

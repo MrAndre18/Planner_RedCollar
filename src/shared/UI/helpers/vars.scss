@@ -1,0 +1,41 @@
+// transition
+$transition-anim: cubic-bezier(0.45, 0, 0.35, 1);
+
+// Шрифты
+$font-inter: "Inter", sans-serif !default;
+$font-oswald: "Oswald", sans-serif !default;
+$font-barlow: "Barlow", sans-serif !default;
+$font-size: 16px;
+$fz-pc: 18;
+$fz-mob: 15;
+$line-hight: 130%;
+
+// Цвета
+$black: #272727;
+$dark-grey: #404040;
+$grey: #5F6A70;
+$light-grey-1: #AEBAC3;
+$light-grey-2: #C2CED7;
+$white: #F6FCFF;
+$gold: #FFD700;
+$yellow: #FCDE77;
+$red: #FF4951;
+$dark-green: #144744;
+$green: #286660;
+$light-green: #62B55B;
+
+$blue: #4b80f0;
+
+// Отступы
+$page-padding-pc: 20;
+$page-padding-mob: 10;
+
+$block-margin-pc: 160;
+$block-margin-mob: 100;
+
+// Размеры блоков
+$nav-bar-width-pc: 400;
+$nav-bar-width-mob: 200;
+
+$screen-max-width: 1920;
+$screen-min-width: 360px;
