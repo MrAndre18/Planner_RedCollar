@@ -1,0 +1,39 @@
+@import 'src/shared/UI/helpers';
+
+.button {
+  padding: 21px 32px;
+  font-family: $font-main;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  @include transition();
+
+  &:disabled {
+    background: $grey-light;
+    color: $grey-main;
+    cursor: auto;
+  }
+
+  &--colored:not(:disabled) {
+    background: $dark-main;
+    color: $white;
+
+    &:hover {
+      background: $accent;
+    }
+  }
+
+  &--outlined:not(:disabled) {
+    border: 1px solid $dark-main;
+    color: $dark-main;
+
+    &:hover {
+      border-color: $accent;
+      color: $accent;
+    }
+  }
+}

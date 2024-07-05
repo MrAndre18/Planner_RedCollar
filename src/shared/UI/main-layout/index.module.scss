@@ -2,4 +2,11 @@
 
 .main {
   min-height: 100vh;
+  min-width: $screen-min-width;
+  max-width: $screen-max-width+px;
+  margin: 0 auto;
+  @include adaptiv-value('padding-top', 30, 24);
+  @include adaptiv-value('padding-left', 60, 30);
+  @include adaptiv-value('padding-right', 60, 30);
+  @include adaptiv-value('padding-bottom', 64, 52);
 }
