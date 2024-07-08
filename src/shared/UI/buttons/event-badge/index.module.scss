@@ -1,0 +1,30 @@
+@import 'src/shared/UI/helpers';
+
+.badge {
+  max-width: 100%;
+  flex-shrink: 0;
+  padding: 2px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 8px;
+  background: $grey-light;
+
+  &__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: $font-second;
+    color: $text-color;
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    @include transition();
+  }
+
+  &--past &__title {
+    color: $grey-main;
+  }
+}

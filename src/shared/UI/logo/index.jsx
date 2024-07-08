@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './index.module.scss';
 
-import LogoImg from '/img/svg/logo.svg?react';
+import LogoImg from 'src/shared/img/svg/logo.svg?react';
 
 export const Logo = () => {
   return (

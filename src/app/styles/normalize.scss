@@ -42,8 +42,8 @@ u,
 i,
 center,
 dl,
-dt,
-dd,
+// dt,
+// dd,
 ol,
 ul,
 li,
@@ -56,9 +56,9 @@ caption,
 tbody,
 tfoot,
 thead,
-tr,
-th,
-td,
+// tr,
+// th,
+// td,
 article,
 aside,
 canvas,
@@ -79,13 +79,13 @@ time,
 mark,
 audio,
 video,
-svg {
+svg,
+main {
   margin: 0;
   padding: 0;
   border: 0;
   outline: none;
   box-sizing: border-box;
-  display: block;
 
   &::before,
   &::after {
@@ -96,7 +96,6 @@ svg {
     font-size: inherit;
     font-family: inherit;
     box-sizing: border-box;
-    display: block;
   }
 }
 
@@ -202,7 +201,7 @@ q:after {
   content: none;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+// table {
+//   border-collapse: collapse;
+//   border-spacing: 0;
+// }

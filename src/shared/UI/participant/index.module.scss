@@ -1,0 +1,49 @@
+@import 'src/shared/UI/helpers';
+
+.participant {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: $font-second;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  vertical-align: top;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+  }
+
+  &__badge,
+  &__status {
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+
+  &__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 0px 4px 2px;
+    border-radius: 8px;
+    background: $pink-light;
+    color: $violet;
+
+    &-text {
+      vertical-align: top;
+    }
+  }
+
+  &__status {
+    font-weight: 500;
+    color: $grey-main;
+  }
+}

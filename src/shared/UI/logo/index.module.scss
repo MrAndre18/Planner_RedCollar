@@ -8,7 +8,7 @@
   &__text {
     font-family: $font-main;
     color: $black;
-    @include adaptiv-font(26, 24);
+    font-size: 26px;
     line-height: 120%;
     letter-spacing: -0.02em;
   }

@@ -1,0 +1,36 @@
+@import 'src/shared/UI/helpers';
+
+.modal-root {
+  .modal {
+    pointer-events: all;
+
+    &__mask {
+      background-color: rgba(69, 75, 87, 0.4);
+    }
+
+    &__body {
+      position: relative;
+      min-height: 340px;
+      border-radius: 64px;
+      background: $bg-color;
+      color: $text-color;
+      font-family: $font-main;
+    }
+
+    &__close {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      cursor: pointer;
+
+      & svg path {
+        fill: $grey-main;
+        @include transition();
+      }
+
+      &:hover svg path {
+        fill: $dark-main;
+      }
+    }
+  }
+}

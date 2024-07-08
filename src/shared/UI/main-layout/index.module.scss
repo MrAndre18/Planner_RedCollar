@@ -1,6 +1,7 @@
 @import 'src/shared/UI/helpers';
 
 .main {
+  display: block;
   min-height: 100vh;
   min-width: $screen-min-width;
   max-width: $screen-max-width+px;

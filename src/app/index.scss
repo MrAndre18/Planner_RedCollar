@@ -1,6 +1,64 @@
 @import './styles/index.scss';
 @import 'src/shared/UI/helpers';
 
+body .os-scrollbar {
+  // The size of the scrollbar
+  --os-size: 23px;
+  // The axis-perpendicular padding of the scrollbar (horizontal: padding-y, vertical: padding-x)
+  --os-padding-perpendicular: 8px;
+  // The axis padding of the scrollbar (horizontal: padding-x, vertical: padding-y)
+  --os-padding-axis: 10px;
+  // The border radius of the scrollbar track
+  --os-track-border-radius: 24px;
+  // The background of the scrollbar track
+  --os-track-bg: #FAFAFA;
+  // The :hover background of the scrollbar track
+  --os-track-bg-hover: #FAFAFA;
+  // The :active background of the scrollbar track
+  --os-track-bg-active: #FAFAFA;
+  // The border of the scrollbar track
+  --os-track-border: none;
+  // The :hover background of the scrollbar track
+  --os-track-border-hover: none;
+  // The :active background of the scrollbar track
+  --os-track-border-active: none;
+  // The border radius of the scrollbar handle
+  --os-handle-border-radius: 24px;
+  // The background of the scrollbar handle
+  --os-handle-bg: #B3B3BC;
+  // The :hover background of the scrollbar handle
+  --os-handle-bg-hover: #B3B3BC;
+  // The :active background of the scrollbar handle
+  --os-handle-bg-active: #B3B3BC;
+  // The border of the scrollbar handle
+  --os-handle-border: none;
+  // The :hover border of the scrollbar handle
+  --os-handle-border-hover: none;
+  // The :active border of the scrollbar handle
+  --os-handle-border-active: none;
+  // The min size of the scrollbar handle
+  --os-handle-min-size: 17px;
+  // The max size of the scrollbar handle
+  --os-handle-max-size: 1;
+  // The axis-perpendicular size of the scrollbar handle (horizontal: height, vertical: width)
+  --os-handle-perpendicular-size: 5px;
+  // The :hover axis-perpendicular size of the scrollbar handle (horizontal: height, vertical: width)
+  --os-handle-perpendicular-size-hover: 5px;
+  // The :active axis-perpendicular size of the scrollbar handle (horizontal: height, vertical: width)
+  --os-handle-perpendicular-size-active: 5px;
+  // Increases the interactive area of the scrollbar handle.
+  --os-handle-interactive-area-offset: 8px;
+
+  &.os-scrollbar-vertical {
+    & .os-scrollbar-track {
+      padding: 2px 1px;
+    }
+    & .os-scrollbar-handle {
+      margin: 2px 1px;
+    }
+  }
+}
+
 .app {
   background: $bg-color;
   color: $text-color;

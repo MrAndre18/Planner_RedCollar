@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './index.module.scss';
 import { Logo } from 'src/shared/UI/logo';
-import { ActionBtn } from 'src/shared/UI/buttons/action-button';
+import { ActionBtn } from 'src/shared/UI/buttons';
+import { MonthSwitcher } from 'src/features/switch-month';
 
 export const Header = () => {
   return (
@@ -12,6 +13,8 @@ export const Header = () => {
       </div>
 
       <div className={classes['header__controls']}>
+        <MonthSwitcher />
+
         <ActionBtn>
           Вход
         </ActionBtn>
