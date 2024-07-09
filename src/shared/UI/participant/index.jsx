@@ -1,10 +1,10 @@
 import { Avatar } from '../avatar';
 import classes from './index.module.scss';
 
-export const Participant = ({ name, status, badge }) => {
+export const Participant = ({ avatar, name, status, badge }) => {
   return (
     <div className={classes.participant}>
-      <Avatar width={40} alt={name} />
+      <Avatar src={avatar} size={40} alt={name} />
 
       <div className={classes['participant__content']}>
         <span className={classes['participant__name']}>{name}</span>

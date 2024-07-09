@@ -1,15 +1,13 @@
 import classes from './index.module.scss';
 import noPhoto from 'src/shared/img/head.png';
 
-export const Avatar = ({ src, alt = 'avatar', width = 40, style }) => {
+export const Avatar = ({ src, alt = 'avatar', size = 40, style }) => {
   return (
     <div
       className={classes.avatar}
-      width={width}
-      height={width}
       style={{
-        width: width,
-        height: width,
+        width: size,
+        height: size,
         ...style
       }}
     >

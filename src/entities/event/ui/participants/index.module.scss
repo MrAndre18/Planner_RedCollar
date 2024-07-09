@@ -1,0 +1,21 @@
+@import 'src/shared/UI/helpers';
+
+.participants {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  &__overflow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &-count {
+      font-family: $font-second;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+    }
+  }
+}

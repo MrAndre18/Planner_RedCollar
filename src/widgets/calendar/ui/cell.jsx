@@ -1,5 +1,4 @@
 import { monthsAbbreviated } from '../config';
-import { getEvents } from 'src/shared/API/events';
 import { ShowEvent } from 'src/features/show-event';
 import './cell.scss';
 import { useEffect, useRef } from 'react';
@@ -7,10 +6,8 @@ import { useEffect, useRef } from 'react';
 import 'overlayscrollbars/overlayscrollbars.css';
 import { useOverlayScrollbars } from 'overlayscrollbars-react';
 
-export const cellRender = (current, info) => {
+export const cellRender = (current, info, events) => {
   const
-    [events, eventsIsLoading, eventsError] = getEvents(),
-
     // Scroll
     rootRef = useRef(),
     scrollOptions = {
@@ -29,7 +26,7 @@ export const cellRender = (current, info) => {
     })
 
     useEffect(() => {
-      scrollInitialize(rootRef.current);
+      rootRef && scrollInitialize(rootRef.current);
     }, [scrollInitialize]);
 
   return (

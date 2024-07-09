@@ -4,9 +4,14 @@ import '../lib';
 import { useContext } from 'react';
 import { AppContext } from 'src/shared/context';
 import { cellRender } from './cell';
+import { getEventsForChoosedMonth } from 'src/shared/API/events';
 
 export const Calendar = () => {
-  const { choosedDate } = useContext(AppContext)
+  const
+    { choosedDate } = useContext(AppContext),
+    [events, eventsIsLoading, eventsError] = getEventsForChoosedMonth({
+      populate: '*',
+    })
 
   return (
     <section id='calendar'>
@@ -14,7 +19,7 @@ export const Calendar = () => {
         className='calendar'
         value={choosedDate.value}
         headerRender={() => null}
-        fullCellRender={cellRender}
+        fullCellRender={(current, info) => cellRender(current, info, events)}
         disabledDate={() => { return true }}
         locale={{ "lang": { "locale": 'ru_RU' } }}
       />

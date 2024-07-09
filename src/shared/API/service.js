@@ -1,16 +1,20 @@
 import axios from "axios";
-import { backendBaseUrl } from "./config";
+import { backendAPIUrl } from "./config";
 
-axios.defaults.baseURL = backendBaseUrl;
+axios.defaults.baseURL = backendAPIUrl;
 
 export class QueryService {
-  static async getEvents(range) {
+  static async getEvents(params) {
     const response = await axios.get('events', {
-      params: {
-        populate: '*',
-        'filters[dateStart][$gte]': range.gte,
-        'filters[dateStart][$lte]': range.lte,
-      }
+      params: params
+    })
+
+    return response.data
+  }
+
+  static async getUsers(params) {
+    const response = await axios.get('users', {
+      params: params
     })
 
     return response.data

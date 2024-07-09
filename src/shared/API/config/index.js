@@ -1,1 +1,1 @@
-export { backendBaseUrl } from "./backend";
+export { backendBaseUrl, backendAPIUrl } from "./backend";

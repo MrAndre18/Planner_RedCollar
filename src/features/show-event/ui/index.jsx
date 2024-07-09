@@ -2,7 +2,7 @@ import { EventBadge } from 'src/shared/UI/buttons';
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from 'src/shared/context';
 import { Modal } from 'src/shared/UI/modal';
-import { EventContent } from './event';
+import { Event } from 'src/entities/event';
 
 export const ShowEvent = ({ event }) => {
   const
@@ -32,9 +32,8 @@ export const ShowEvent = ({ event }) => {
         open={open}
         closeModal={() => { setOpen(false) }}
         size='lg'
-        title={event.title}
       >
-        <EventContent event={event} />
+        <Event event={event} />
       </Modal>
     </>
   )
