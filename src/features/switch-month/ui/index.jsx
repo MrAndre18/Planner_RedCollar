@@ -16,14 +16,14 @@ export const MonthSwitcher = () => {
 
       <div className={classes['month-switcher__controls']}>
         <ArrowBtn
-          reverseDirection={true}
-          clickHandler={() => {
+          direction='left'
+          onClick={() => {
             choosedDate.setValue(choosedDate.value.subtract(1, 'month'))
           }}
         />
 
         <ArrowBtn
-          clickHandler={() => {
+          onClick={() => {
             choosedDate.setValue(choosedDate.value.add(1, 'month'))
           }}
         />

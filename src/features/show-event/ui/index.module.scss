@@ -1,0 +1,31 @@
+@import 'src/shared/UI/helpers';
+
+.footer-text {
+  display: block;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  text-align: center;
+
+  &__btn {
+    position: relative;
+    display: inline-block;
+    color: $accent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      height: 1px;
+      width: 0;
+      background: $accent;
+      @include transition();
+    }
+
+    &:hover::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+}

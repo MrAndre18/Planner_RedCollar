@@ -3,6 +3,7 @@
 .modal-root {
   .modal {
     pointer-events: all;
+    overflow: hidden;
 
     &__mask {
       background-color: rgba(69, 75, 87, 0.4);
@@ -31,6 +32,13 @@
       &:hover svg path {
         fill: $dark-main;
       }
+    }
+
+    &__title {
+      font-size: 36px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+      text-align: center;
     }
   }
 }

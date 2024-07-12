@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AppContext } from 'src/shared/context';
 import { Modal } from 'src/shared/UI/modal';
 import { Event } from 'src/entities/event';
+import classes from './index.module.scss';
 
 export const ShowEvent = ({ event }) => {
   const
@@ -20,6 +21,14 @@ export const ShowEvent = ({ event }) => {
     }
   }, [])
 
+  const Footer = () => {
+    return (
+      <span className={classes['footer-text']}>
+        <button className={classes['footer-text__btn']}>Войдите</button>, чтобы присоединиться к событию
+      </span>
+    )
+  }
+
   return (
     <>
       <EventBadge
@@ -29,11 +38,24 @@ export const ShowEvent = ({ event }) => {
       />
 
       <Modal
+        title={event.title}
+        footer={!isPast && <Footer />}
         open={open}
         closeModal={() => { setOpen(false) }}
-        size='lg'
+        width={1075}
+        style={{
+          body: {
+            padding: '80px 64px'
+          },
+          header: {
+            marginBottom: isPast ? 16 : 40
+          },
+          footer: {
+            marginTop: 64
+          }
+        }}
       >
-        <Event event={event} />
+        <Event event={event} isPast={isPast} />
       </Modal>
     </>
   )

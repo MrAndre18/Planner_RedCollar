@@ -3,36 +3,52 @@ import { Modal as ModalAntd } from 'antd';
 
 import CloseImg from 'src/shared/img/svg/close/close-x40.svg?react';
 
-const sizes = {
-  'xs': 600,
-  's': 710,
-  'm': 770,
-  'lg': 1075,
-}
-
 export const Modal = ({
   children,
+  title,
+  footer = null,
   open = false,
   closeModal,
-  size = 'xs', // 'xs' | 's' | 'm' | 'lg'
-  bodyStyles = {
-    padding: '80px 64px 64px 64px'
+  width = 600,
+  style = {
+    body: {
+      padding: '80px 64px'
+    },
+    header: {
+      marginBottom: 40
+    },
+    content: {},
+    footer: {}
   }
-
 }) => {
   const modalBody = () => {
     return (
       <div
-        className={`${classes['modal__body']} ${classes[`modal__body--${size}`]}`}
-        style={bodyStyles}
+        className={classes['modal__body']}
+        style={style.body}
       >
         <button className={classes['modal__close']} onClick={closeModal}>
           <CloseImg />
         </button>
 
-        <div className={classes['modal__content']}>
+        {title &&
+          <header style={style.header}>
+            <h3 className={classes['modal__title']}>{title}</h3>
+          </header>
+        }
+
+        <div
+          className={classes['modal__content']}
+          style={style.content}
+        >
           {children}
         </div>
+
+        {footer &&
+          <footer style={style.footer}>
+            {footer}
+          </footer>
+        }
       </div>
     )
   }
@@ -50,9 +66,9 @@ export const Modal = ({
         footer={null}
         centered={true}
         onCancel={closeModal}
-        width={sizes[size]}
-        // loading={false}
+        width={width}
         modalRender={modalBody}
+        destroyOnClose={true}
       />
     </>
   )

@@ -1,26 +1,28 @@
 import dayjs from 'dayjs';
 import classes from './index.module.scss';
 import { Participants } from './participants';
-import { Carousel } from 'antd';
 import { backendBaseUrl } from 'src/shared/API/config';
+import { ImageSlider } from 'src/shared/UI/image-slider';
 import { useRef } from 'react';
+import { ArrowBtn } from 'src/shared/UI/buttons';
+import { Alert } from 'src/shared/UI/alert';
 
-export const Event = ({ event }) => {
-  let sliderRef = useRef(null);
-  const next = () => {
-    sliderRef.next();
-  };
-  const previous = () => {
-    sliderRef.prev();
-  };
+export const Event = ({ event, isPast }) => {
+  const sliderRef = useRef(null)
+
   return (
     <section className={classes.event}>
-      <header>
-        <h3 className={classes['event__title']}>{event.title}</h3>
-      </header>
+      {isPast &&
+        <Alert
+          style={{
+            margin: '0 auto 24px'
+          }}
+        >Мероприятие уже прошло</Alert>
+      }
 
       <article className={classes['event__desc']}>
-        <div className={classes['event__info']}>
+        <div
+          className={`${classes['event__info']}${isPast ? ' ' + classes['event__info--past'] : ''}`}>
           <div className={classes['event__info-start']}>
             <span className={classes['event__info-day']}>
               {dayjs(event.dateStart).format('dddd')}
@@ -41,39 +43,44 @@ export const Event = ({ event }) => {
         </div>
       </article>
 
-      <div className={classes['event__participants']}>
-        <h4 className={classes['event__article-title']}>Участники</h4>
+      <article className={classes['event__participants']}>
+        <header>
+          <h4 className={classes['event__article-title']}>Участники</h4>
+        </header>
 
         <Participants
           participants={event.participants}
           owner={event.owner}
         />
-      </div>
-
-
-      <article className={classes['event__gallery']}>
-        <h4 className={classes['event__article-title']}>Галерея</h4>
-
-        <Carousel
-          ref={slider => {
-            sliderRef = slider;
-          }}
-          slidesToShow={3}
-          dots={false}
-          infinite={false}
-          speed={600}
-          easing='cubic-bezier(0.25, 0.1, 0.25, 1)'
-        >
-          {event.photos.map(photo =>
-            <div key={photo.id}>
-              <img src={backendBaseUrl + photo.url} alt={photo.name} />
-            </div>
-          )}
-        </Carousel>
       </article>
 
-      <button onClick={previous}>Назад</button>
-      <button onClick={next}>Вперёд</button>
+      <article className={classes['event__gallery']}>
+        <header className={classes['event__gallery-header']}>
+          <h4 className={classes['event__article-title']}>Галерея</h4>
+
+          <div className={classes['event__gallery-controls']}>
+            <ArrowBtn
+              direction='left'
+              onClick={() => { sliderRef && sliderRef.current.swiper.slidePrev() }}
+            />
+
+            <ArrowBtn
+              onClick={() => { sliderRef && sliderRef.current.swiper.slideNext() }}
+            />
+          </div>
+        </header>
+
+        <ImageSlider
+          sliderRef={sliderRef}
+          images={
+            event.photos.map(photo => ({
+              id: photo.id,
+              src: backendBaseUrl + photo.url,
+              alt: photo.name
+            }))
+          }
+        />
+      </article>
     </section>
   )
 }

@@ -13,6 +13,10 @@ const App = () => {
   const
     [choosedDate, setChoosedDate] = useState(dayjs()),
     [events, setEvents] = useState([]),
+    [isAuth, setIsAuth] = useState(false),
+
+    // Modals controllers
+    [authModalIsOpen, setAuthModalIsOpen] = useState(false),
 
     // Scroll
     scrollOptions = {
@@ -47,6 +51,12 @@ const App = () => {
       events: {
         list: events,
         setList: setEvents
+      },
+
+      // authorization
+      auth: {
+        isAuth: isAuth,
+        setIsAuth: setIsAuth
       }
     }}>
       <div className='app'>
