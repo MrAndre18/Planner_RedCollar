@@ -1,0 +1,139 @@
+@import 'src/shared/UI/helpers';
+
+.root {
+  position: relative;
+  height: 60px;
+  border-radius: 12px;
+  background: $bg-color;
+  border: 1px solid $grey-main;
+  gap: 8px;
+  padding: 0 16px;
+  font-family: $font-second;
+  cursor: text;
+  @include transition();
+
+  &:hover {
+    border-color: $dark-main;
+  }
+
+  &[data-focused="true"] {
+    border-color: $dark-main;
+  }
+
+  &[data-error="true"] {
+    border-color: $accent;
+  }
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: -0.02em;
+  color: $grey-main;
+  cursor: text;
+  user-select: none;
+  @include transition($duration: 0.4s);
+
+  &__required-pin {
+    display: inline;
+    color: $accent;
+    user-select: none;
+  }
+
+  &[data-focused="true"] {
+    translate: 0;
+    top: 10px;
+    font-size: 14px;
+    line-height: 100%;
+  }
+}
+
+.input {
+  position: absolute;
+  bottom: 11px;
+  opacity: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  width: calc(100% - 32px - 32px - 8px);
+  color: $text-color;
+  caret-color: $green;
+  background: none;
+  @include transition($duration: 0.4s);
+
+  &[data-focused="true"] {
+    opacity: 1;
+  }
+
+  &::placeholder {
+    color: $grey-main;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+}
+
+.adornment {
+  opacity: 0;
+  cursor: inherit;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 32px;
+  height: 32px;
+  @include transition($duration: 0.4s);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  &-clear {
+    & svg {
+      & path {
+        fill: $grey-main;
+        @include transition($duration: 0.4s);
+      }
+    }
+  
+    &[data-error="true"] {
+      & svg path {
+        fill: $accent;
+      }
+    }
+  }
+}
+
+.notice {
+  max-width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  font-family: $font-second;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: $grey-main;
+  @include transition($duration: 0.4s);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    bottom: auto;
+    top: calc(100% + 4px);
+  }
+
+  &[data-error="true"] {
+    color: $accent;
+  }
+}

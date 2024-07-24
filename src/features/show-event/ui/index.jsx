@@ -7,7 +7,7 @@ import classes from './index.module.scss';
 
 export const ShowEvent = ({ event }) => {
   const
-    { today } = useContext(AppContext),
+    { today, modals } = useContext(AppContext),
     [open, setOpen] = useState(false),
     [isPast, setIsPast] = useState(true)
 
@@ -24,7 +24,13 @@ export const ShowEvent = ({ event }) => {
   const Footer = () => {
     return (
       <span className={classes['footer-text']}>
-        <button className={classes['footer-text__btn']}>Войдите</button>, чтобы присоединиться к событию
+        <button
+          className={classes['footer-text__btn']}
+          onClick={() => {
+            setOpen(false)
+            modals.authorize.setOpen(true)
+          }}
+        >Войдите</button>, чтобы присоединиться к событию
       </span>
     )
   }

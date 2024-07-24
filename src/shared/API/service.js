@@ -1,5 +1,6 @@
 import axios from "axios";
 import { backendAPIUrl } from "./config";
+import { useState } from "react";
 
 axios.defaults.baseURL = backendAPIUrl;
 
@@ -18,5 +19,17 @@ export class QueryService {
     })
 
     return response.data
+  }
+
+  static checkUserExist(email) {
+    return axios.get(`taken-emails/${email}`)
+      .then(response => {
+        console.log(response);
+        return response.status
+      })
+      .catch(error => {
+        console.error(error.message, ': User is not found')
+        return error.response.status
+      })
   }
 }

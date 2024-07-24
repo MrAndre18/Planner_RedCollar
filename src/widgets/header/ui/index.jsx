@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './index.module.scss';
 import { Logo } from 'src/shared/UI/logo';
 import { ActionBtn } from 'src/shared/UI/buttons';
 import { MonthSwitcher } from 'src/features/switch-month';
+import { AppContext } from 'src/shared/context';
 
 export const Header = () => {
+  const { modals } = useContext(AppContext)
+
   return (
     <header className={classes.header}>
       <div className={classes['header__title']}>
@@ -15,7 +18,9 @@ export const Header = () => {
       <div className={classes['header__controls']}>
         <MonthSwitcher />
 
-        <ActionBtn>
+        <ActionBtn onClick={() => {
+          modals.authorize.setOpen(true)
+        }}>
           Вход
         </ActionBtn>
       </div>

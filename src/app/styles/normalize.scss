@@ -172,6 +172,10 @@ input {
   padding: 0;
   margin: 0;
   appearance: none;
+
+  &[type='password'] {
+    font-family: Verdana;
+}
 }
 
 textarea {

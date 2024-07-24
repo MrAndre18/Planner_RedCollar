@@ -4,7 +4,8 @@ export const ActionBtn = ({
   children,
   secondary = false,
   disabled = false,
-  clickHandler
+  onClick,
+  style
 }) => {
   return (
     <button
@@ -12,7 +13,8 @@ export const ActionBtn = ({
         classes['button--outlined'] :
         classes['button--colored']}`}
       disabled={disabled}
-      onClick={clickHandler}
+      onClick={onClick}
+      style={style}
     >
       {children}
     </button>

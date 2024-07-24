@@ -8,15 +8,16 @@ import dayjs from 'dayjs';
 
 import 'overlayscrollbars/overlayscrollbars.css';
 import { useOverlayScrollbars } from 'overlayscrollbars-react';
+import { Authorization } from 'src/widgets/authorization';
 
 const App = () => {
   const
     [choosedDate, setChoosedDate] = useState(dayjs()),
     [events, setEvents] = useState([]),
-    [isAuth, setIsAuth] = useState(false),
+    [isLoggedIn, setIsLoggedIn] = useState(false),
 
     // Modals controllers
-    [authModalIsOpen, setAuthModalIsOpen] = useState(false),
+    [authorizeModalIsOpen, setAuthorizeModalOpen] = useState(false),
 
     // Scroll
     scrollOptions = {
@@ -55,15 +56,28 @@ const App = () => {
 
       // authorization
       auth: {
-        isAuth: isAuth,
-        setIsAuth: setIsAuth
-      }
+        isLoggedIn: isLoggedIn,
+        setIsLoggedIn: setIsLoggedIn
+      },
+
+      // modals
+      modals: {
+        authorize: {
+          isOpen: authorizeModalIsOpen,
+          setOpen: setAuthorizeModalOpen
+        }
+      },
     }}>
       <div className='app'>
         <MainLayout>
           <Header />
 
           <Calendar />
+
+          <Authorization
+            isOpen={authorizeModalIsOpen}
+            setOpen={setAuthorizeModalOpen}
+          />
         </MainLayout>
       </div>
     </AppContext.Provider>
